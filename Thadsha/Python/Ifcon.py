@@ -54,11 +54,14 @@ else:
  
 minutes=input("Enter Your Minutes")
 min=float(minutes)
-if min>0 and min<=30:
-    print("price=",(min*2))
-elif min>=31 and min<=60:
-    print("price=",(60+(min-30)*1.50))
-elif min>=61 and min<=120:
-    print("price=",(95+(min-60)*1))
-elif min>=121:
-    print("price=",(155+(min-120)*0.50))
+if min>0:
+    if min>0 and min<=30:
+        print("price=",(min*2))
+    elif min>=31 and min<=60:
+        print("price=",(60+(min-30)*1.50))
+    elif min>=61 and min<=120:
+        print("price=",(95+(min-60)*1))
+    elif min>=121:
+        print("price=",(155+(min-120)*0.50))
+else:
+    print("Enter Your correct minutes")
