@@ -10,6 +10,6 @@ if unit > 0:
         price = 90*7 + 60*10 + (unit-150)*15
     else:
         price = (90*7 + 60*10 +150*15 +(unit-300)*15)*1.03
-    print(f"Price = {price}")
+    print(f"Price ={price}")
 else:
     print(" Enter Your Correct Units")

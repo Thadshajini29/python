@@ -14,6 +14,6 @@ if liter>0:
         price = 500 + 2000*bill +7000*bill2 +(liter-10000)*bill3
     print(f"Price = {price}")
 else:
-    print(" Enter the correct waterliter ")
+    print(" Enter the correct waterliter")
     
    
