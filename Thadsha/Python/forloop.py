@@ -28,8 +28,8 @@ for x in range (10):
     print(x);
     
 print("\n********")    
-for x in range (10):
+for x in range (1,12):
     
-    if x%2==0:
+    if x%2==1:
         continue
     print(x);
