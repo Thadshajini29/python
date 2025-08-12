@@ -1,4 +1,4 @@
-x="Welcome to Python"
+'''x="Welcome to Python"
 print(x)
 print(len(x))
 print(x[0])
@@ -6,7 +6,7 @@ print(x[-4])
 
 print("\n********")
 
-'''i=0
+i=0
 while i<len(x):
     print(x[i])
     i+=1
@@ -37,7 +37,20 @@ for i in reversed(x):
     print(i)
 
 a=x[8:10]
-print(a)'''
+print(a)
 
 a=x[-17:-10]
-print(a)
+print(a)'''
+
+y=input("Enter Your Date of Birth(yyyy.mm.dd):")
+print(y)
+total=0
+for ch in y:
+    if ch.isdigit():
+        total+=int(ch)
+while total>10:
+    x=0
+    for ch in str(total):
+        x+=int(ch)
+    total=x
+print(total)
