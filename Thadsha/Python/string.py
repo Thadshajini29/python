@@ -48,7 +48,7 @@ total=0
 for ch in y:
     if ch.isdigit():
         total+=int(ch)
-while total>10:
+while total>=10:
     x=0
     for ch in str(total):
         x+=int(ch)
