@@ -10,12 +10,14 @@ while any(x.isdigit()for x in fname):
 print("first name is:",fname)
 
 lname=input("Enter Your Last Name: ")
-while any(y.isdigit()for y in fname):
-    print("Correct Your Last Name")
+while any(y.isdigit()for y in lname):
+    print("Correct Your First Name")
+    lname=input("Enter Your Last Name: ")
 print("Last name is:",lname)
 
-age=input("Enter Your Age:")
+age=input("Enter Your age:")
 while not age.isdigit():
+    print("Correct Your age")
     age=input('Enter Your age correct format')
 print("Your Age:",age)
 
@@ -38,12 +40,10 @@ else:
 import datetime
 dob_date=datetime.datetime(year, 1, 1)+datetime.timedelta(days=days - 1)
 dob_str=dob_date.strftime("%Y-%m-%d")
-today=datetime.date.today()
 
-cal_age=today.year - dob_date.year-((today.month, today.day)<(dob_date.month, dob_date.day))
-if cal_age != age:
-    print("Age or NIC wrong")
-    exit()
+today = datetime.date.today()
+cal_age = today.year - dob_date.year - ((today.month, today.day) < (dob_date.month, dob_date.day))
+
    
 print("Your Date of Birth:",dob_date.strftime("%d %B %Y"))
 print("Your Gender:", gender)
