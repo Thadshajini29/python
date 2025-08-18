@@ -37,7 +37,7 @@ def calculate(amount,days):
     elif days==1095:
         interest = amount*14/100
     else:
-        interest = amount*15.5/100
+        interest = amount*15.5/100 
 
     total_amount = amount+interest
     print("interest",interest)
