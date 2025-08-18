@@ -43,7 +43,6 @@ dob_str=dob_date.strftime("%Y-%m-%d")
 
 today = datetime.date.today()
 cal_age = today.year - dob_date.year - ((today.month, today.day) < (dob_date.month, dob_date.day))
-
    
 print("Your Date of Birth:",dob_date.strftime("%d %B %Y"))
 print("Your Gender:", gender)
