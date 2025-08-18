@@ -28,23 +28,31 @@ print(myfullname'''
 
 
 def calculate(amount,days):
-    if days==90:
-        interest = amount*12/100
-    elif days==180:
-        interest = amount*12.5/100
-    elif days==365:
-        interest = amount*13/100
-    elif days==1095:
-        interest = amount*14/100
+    month = days // 30
+
+    if month == 3:
+        interest_rate = 12
+    elif month == 6:
+        interest_rate = 12.5
+    elif month == 12:
+        interest_rate = 13
+    elif month == 36:
+        interest_rate = 14
+    elif month >= 60:
+        interest_rate = 15.5
     else:
-        interest = amount*15.5/100 
+        interest_rate = 0
 
-    total_amount = amount+interest
-    print("interest",interest)
-    print("Total amount:",total_amount)
+    interest = amount * interest_rate / 100
+    total_amount = amount + interest
 
-calculate(10000,90)
-calculate(10000,180)
-calculate(10000,365)
-calculate(10000,1095)
-calculate(10000,1830)    
+    print("Interest:", interest)
+    print("Total amount:", total_amount)
+    print("-" * 30)
+
+
+calculate(10000, 90)
+calculate(10000, 180)
+calculate(10000, 365)
+calculate(10000, 1095)
+calculate(10000, 1830)    
