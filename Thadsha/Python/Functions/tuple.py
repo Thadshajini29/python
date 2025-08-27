@@ -24,7 +24,7 @@ print(age)
 print(dob)
 
 marks=(70,85,55,96)
-*a,b,c=marks
+a,*b,c=marks
 print(a)
 print(b)
 print(c)

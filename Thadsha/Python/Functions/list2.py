@@ -45,5 +45,4 @@ for student in students:
     else:
         result="correct Format"
 
-
     print(f"{name:<12} {subjects[0]:<20} {subjects[1]:<20} {subjects[2]:<20} {total:>6} {average:>8.2f} {result:>8}")   

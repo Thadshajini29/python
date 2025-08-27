@@ -1,54 +1,46 @@
-studentscount=int(input("How many students? "))
-students=[]
-
-subjectcount=int(input("How many subjects? "))
-subjects=[]
-
-for y in range(subjectcount):
-    subjectname=input(f"Enter subject name {y + 1}: ")
+studentcount = int(input("How many students? "))
+students = []
+subjectcount = int(input("\nHow many subjects?"))
+subjects = []
+studentlist = []
+averagelist = []
+for i in range(subjectcount):
+    subjectname = input(f"Enter your subject {i+1}: ")
     subjects.append(subjectname)
-
-for x in range(studentscount):
-    studentname=input(f"\nEnter student name {x + 1}: ")
-    marks=[]
+for i in range(studentcount):
+    name = input(f"\nEnter the studentname {i+1}: ")
+    marks = []
     for subject in subjects:
-        mark=float(input(f"Enter marks for {subject}: "))
+        mark = int(input(f"Enter marks for {subject}: "))
         marks.append(mark)
- 
-    total=sum(marks)
-    average=total/subjectcount
-
-    if 75<=average<=100:
-        result='A'
-    elif 65<=average<75:
-        result='B'
-    elif 55<=average<65:
-        result='C'
-    elif 45<=average<55:
-        result='S'
-    elif 0<=average< 45:
-        result='F'
+    total = sum(marks)
+    average = total / len(marks)
+    averagelist.append(average)
+    if average >= 75:
+        result = "A"
+    elif average >= 65:
+        result = "B"
+    elif average >= 55:
+        result = "C"
+    elif average >= 40:
+        result = "S"
     else:
-        result="correct format"
+        result = "F"
+    studentlist.append([name] + marks + [total, average, result])
+sorted_averages = sorted(averagelist, reverse=True)
 
-    students.append({
-        'name': studentname,
-        'marks': marks,
-        'total': total,
-        'average': average,
-        'result': result
-    })
+heading = f"{'Name':<10}"
+for subject in subjects:
+    heading += f"{subject:>8}"
+heading += f"{'Total':>8}{'average':>8}{'result':>8}"
+print("\n" + heading)
+printedaverages = []
 
-
-print("\nFinal Results:\n")
-heading=f"{'Name':<12}"+"".join(f"{subject:<20}" for subject in subjects)+f"{'Total':>8} {'Average':>8} {'Grade':>8}"
-print(heading)
-print("-" * len(heading))
-
-
-for student in students:
-    line=f"{student['name']:<12}"
-    for mark in student['marks']:
-        line+=f"{mark:<20}"
-    line+=f"{student['total']:>8.2f} {student['average']:>8.2f} {student['result']:>8}"
-    print(line)
+for average in sorted_averages:
+    for student in studentlist:
+        if student[-2] == average:
+            data = f"{student[0]:<10}"
+            for mark in student[1:1+subjectcount]:
+                data += f"{mark:>8}"
+            data += f"{student[-3]:>8}{student[-2]:>8.2f}{student[-1]:>8}"
+            print(data)
