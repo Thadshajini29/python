@@ -1,56 +1,55 @@
-'''x="Welcome to Python"
-print(x)
-print(len(x))
-print(x[0])
-print(x[-4])
+# ================================
+# STRING HANDLING & DOB DIGIT SUM
+# ================================
+
+# String declaration
+x = "Welcome to Python"
+
+# Print string and basic properties
+print(x)                 # Print full string
+print(len(x))            # Length of the string
+print(x[0])              # First character
+print(x[-4])             # 4th character from last
 
 print("\n********")
 
-i=0
-while i<len(x):
+# Print string characters using while loop (forward)
+i = 0
+while i < len(x):
     print(x[i])
-    i+=1
-    
+    i += 1
+
 print("\n********")
 
-y=len(x)-1
-while y>=0:
+# Print string characters using while loop (reverse)
+y = len(x) - 1
+while y >= 0:
     print(x[y])
-    y-=1
+    y -= 1
 
 print("\n********")
 
-t=abs(len(x))
-while (t<=-1):
-    print(x[t])
-    t=t+1'''
-    
-'''for i in x:
-    print(i)
-    
-for i in range(0,len(x),1):
-    print(x[i])
-    
-print("\n********")
+# -------------------------------
+# DATE OF BIRTH DIGIT SUM
+# -------------------------------
 
-for i in reversed(x):
-    print(i)
-
-a=x[8:10]
-print(a)
-
-a=x[-17:-10]
-print(a)'''
-
-y=input("Enter Your Date of Birth(yyyy.mm.dd):")
+# Get date of birth from user
+y = input("Enter Your Date of Birth (yyyy.mm.dd): ")
 print(y)
-total=0
+
+# Calculate total of digits
+total = 0
 for ch in y:
-    if ch.isdigit():
-        total+=int(ch)
-while total>=10:
-    x=0
+    if ch.isdigit():          # Check only digits
+        total += int(ch)
+
+# Reduce total to single digit
+while total >= 10:
+    x = 0
     for ch in str(total):
-        x+=int(ch)
-    total=x
+        x += int(ch)
+    total = x
+
+# Print final result
 print(total)
+
