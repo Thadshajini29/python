@@ -1,27 +1,63 @@
-month=["January","February","March","April","May","June","July","Auguest","Septemper","October","November","December"]
-salaries=[40000,50000,70000,100000,120000,150000,170000,200000,210000,250000,300000,310000]
-taxes=[]
+month = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+]
 
-totalsalary = 0
-totaltax = 0
-print(f"{'Month':<10} {'Salary':>12} {'Tax':>12} {'Net Salary':>12}")
+salaries = [
+    40000, 50000, 70000, 100000, 120000, 150000,
+    170000, 200000, 210000, 250000, 300000, 310000
+]
+
+taxes = []
+
+total_net_salary = 0
+total_tax = 0
+total_gross_salary = 0
+
+print(f"{'Month':<12}{'Salary':>15}{'Tax %':>10}{'Tax':>15}{'Net Salary':>15}")
+print("-" * 67)
+
 for i in range(len(salaries)):
     salary = salaries[i]
-    months = month[i]
-    if 0<salary<50000:
-        tax=salary*3/100
-    elif 50000<=salary<100000:
-        tax=salary*5/100
-    elif 100000<=salary<300000:
-        tax=salary*8/100
-    elif salary>=300000:
-        tax=salary*10/100
-    taxes.insert(i,tax)
+    month_name = month[i]
 
-    netsalary=salary-tax
-    totalsalary+=netsalary
-    totaltax+=tax
-    print(f"{month[i]:<10} {salaries[i]:>12} {taxes[i]:>12} {netsalary:>12}")
+    if salary < 50000:
+        tax_rate = 3
+    elif salary < 100000:
+        tax_rate = 5
+    elif salary < 300000:
+        tax_rate = 8
+    else:
+        tax_rate = 10
 
-print(f"\nTotal Net Salary:{totalsalary}")
-print(f"Total Tax:{totaltax}")
+    tax = salary * tax_rate / 100
+    taxes.append(tax)
+
+    net_salary = salary - tax
+
+    total_gross_salary += salary
+    total_net_salary += net_salary
+    total_tax += tax
+
+    print(
+        f"{month_name:<12}"
+        f"{salary:>15,.2f}"
+        f"{tax_rate:>10}%"
+        f"{tax:>15,.2f}"
+        f"{net_salary:>15,.2f}"
+    )
+
+print("-" * 67)
+
+# Annual Summary
+print("ANNUAL SUMMARY")
+print("-" * 67)
+print(f"{'Total Gross Salary':<25}{total_gross_salary:>42,.2f}")
+print(f"{'Total Tax Paid':<25}{total_tax:>42,.2f}")
+print(f"{'Total Net Salary':<25}{total_net_salary:>42,.2f}")
+
+average_monthly_salary = total_gross_salary / len(salaries)
+average_monthly_tax = total_tax / len(salaries)
+
+print(f"{'Average Monthly Salary':<25}{average_monthly_salary:>42,.2f}")
+print(f"{'Average Monthly Tax':<25}{average_monthly_tax:>42,.2f}")

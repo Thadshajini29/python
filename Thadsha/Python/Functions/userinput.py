@@ -1,21 +1,26 @@
+# Input number of students and subjects
 studentcount = int(input("How many students? "))
-students = []
-subjectcount = int(input("\nHow many subjects?"))
+subjectcount = int(input("How many subjects? "))
+
+# Input subjects
 subjects = []
-studentlist = []
-averagelist = []
 for i in range(subjectcount):
     subjectname = input(f"Enter your subject {i+1}: ")
     subjects.append(subjectname)
+
+# Input students and marks
+studentlist = []
 for i in range(studentcount):
-    name = input(f"\nEnter the studentname {i+1}: ")
+    name = input(f"\nEnter the student name {i+1}: ")
     marks = []
     for subject in subjects:
         mark = int(input(f"Enter marks for {subject}: "))
         marks.append(mark)
+
     total = sum(marks)
-    average = total / len(marks)
-    averagelist.append(average)
+    average = total / subjectcount
+
+    # Determine grade
     if average >= 75:
         result = "A"
     elif average >= 65:
@@ -26,21 +31,24 @@ for i in range(studentcount):
         result = "S"
     else:
         result = "F"
-    studentlist.append([name] + marks + [total, average, result])
-sorted_averages = sorted(averagelist, reverse=True)
 
-heading = f"{'Name':<10}"
+    studentlist.append([name] + marks + [total, average, result])
+
+# Sort students by average (descending)
+studentlist.sort(key=lambda x: x[-2], reverse=True)
+
+# Print heading
+heading = f"{'Name':<12}"
 for subject in subjects:
     heading += f"{subject:>8}"
-heading += f"{'Total':>8}{'average':>8}{'result':>8}"
+heading += f"{'Total':>8}{'Average':>8}{'Result':>8}"
 print("\n" + heading)
-printedaverages = []
+print("-" * len(heading))
 
-for average in sorted_averages:
-    for student in studentlist:
-        if student[-2] == average:
-            data = f"{student[0]:<10}"
-            for mark in student[1:1+subjectcount]:
-                data += f"{mark:>8}"
-            data += f"{student[-3]:>8}{student[-2]:>8.2f}{student[-1]:>8}"
-            print(data)
+# Print each student's data
+for student in studentlist:
+    row = f"{student[0]:<12}"
+    for mark in student[1:1 + subjectcount]:
+        row += f"{mark:>8}"
+    row += f"{student[-3]:>8}{student[-2]:>8.2f}{student[-1]:>8}"
+    print(row)

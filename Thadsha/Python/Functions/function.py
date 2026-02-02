@@ -1,44 +1,38 @@
-'''def myname():
-    print("My name is Thadshajini")
-myname()
+# -------- Function Examples --------
 
 def myname(name):
-    print(f"my name is {name}")
-    
+    print(f"My name is {name}")
+
 myname("Thadshajini")
 myname("Sumi")
 myname("Kavi")
 
-def getfullname(fname,lname):
-    print(f"My First name is {fname}")
-    print(f"My Last name is {lname}")
-    print(f"My full name is {fname}{lname}")
-    
-getfullname("Thadshajini","Sownthararaja")
 
-def getfullname(fname="Thadshajini",lname="Sownthararaja"):
-    return(f"My full name is {fname}{lname}")
+def getfullname(fname="Thadshajini", lname="Sownthararaja"):
+    return f"My full name is {fname} {lname}"
 
-getfullname("Thadshajini","Sownthararaja")
-getfullname("Sumi","Arul")
-getfullname()
-
-myfullname=getfullname()
-print(myfullname'''
+print(getfullname("Thadshajini", "Sownthararaja"))
+print(getfullname("Sumi", "Arul"))
+print(getfullname())
 
 
-def calculate(amount,days):
-    month = days // 30
+print("\n" + "=" * 40 + "\n")
 
-    if month == 3:
+
+# -------- Interest Calculation --------
+
+def calculate(amount, days):
+    months = days // 30
+
+    if 3 <= months < 6:
         interest_rate = 12
-    elif month == 6:
+    elif 6 <= months < 12:
         interest_rate = 12.5
-    elif month == 12:
+    elif 12 <= months < 36:
         interest_rate = 13
-    elif month == 36:
+    elif 36 <= months < 60:
         interest_rate = 14
-    elif month >= 60:
+    elif months >= 60:
         interest_rate = 15.5
     else:
         interest_rate = 0
@@ -46,13 +40,17 @@ def calculate(amount,days):
     interest = amount * interest_rate / 100
     total_amount = amount + interest
 
-    print("Interest:", interest)
-    print("Total amount:", total_amount)
-    print("-" * 30)
+    print(f"Days        : {days}")
+    print(f"Months      : {months}")
+    print(f"Rate        : {interest_rate}%")
+    print(f"Interest    : {interest:.2f}")
+    print(f"Total Amount: {total_amount:.2f}")
+    print("-" * 40)
 
 
-calculate(10000, 90)
-calculate(10000, 180)
-calculate(10000, 365)
-calculate(10000, 1095)
-calculate(10000, 1830)    
+# Function calls
+calculate(10000, 90)     # 3 months
+calculate(10000, 180)    # 6 months
+calculate(10000, 365)    # 12 months
+calculate(10000, 1095)   # 36 months
+calculate(10000, 1830)   # 60 months

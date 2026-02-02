@@ -1,21 +1,26 @@
-''' = [
-    [10, 20, 30],
-    [70, 90, 25],
-    [40, 98, 26]
-]
-print(x[0][0])
-print(x[1][0])
-print(x[1][1])
+# x = [
+#     [10, 20, 30],
+#     [70, 90, 25],
+#     [40, 98, 26]
+# ]
 
-i=0
-while i<3:
-    j=0
-    while j<3:
-        print(x[i][j])
-        j+=1
-    i+=1'''
+# # Access individual elements
+# print(x[0][0])  # 10
+# print(x[1][0])  # 70
+# print(x[1][1])  # 90
+
+# # Loop through the 2D list
+# i = 0
+# while i < 3:
+#     j = 0
+#     while j < 3:
+#         print(x[i][j])
+#         j += 1
+#     i += 1
+
     
 subjects = ["SFT", "BST", "ICT"]
+
 students = [
     ["Thadsha", [40, 50, 60]],
     ["Kopi", [50, 70, 60]],
@@ -24,14 +29,16 @@ students = [
     ["Aathi", [45, 35, 25]]
 ]
 
-print(f"{'Student Name':<12} {'BST':<20} {'SFT':<20} {'ICT':<20} {'Total':>6} {'Average':>8} {'Result':>8}")
+# Print header
+print(f"{'Student Name':<12} {'SFT':<6} {'BST':<6} {'ICT':<6} {'Total':>6} {'Average':>8} {'Result':>6}")
 
 for student in students:
     name = student[0]
-    subjects = student[1]
-    total = sum(subjects)
-    average = total / len(subjects)
+    scores = student[1]   # renamed to avoid conflict
+    total = sum(scores)
+    average = total / len(scores)
 
+    # Grade logic
     if 75 <= average <= 100:
         result = 'A'
     elif 65 <= average < 75:
@@ -43,6 +50,6 @@ for student in students:
     elif 0 <= average < 45:
         result = 'F'
     else:
-        result="correct Format"
+        result = "Correct Format"
 
-    print(f"{name:<12} {subjects[0]:<20} {subjects[1]:<20} {subjects[2]:<20} {total:>6} {average:>8.2f} {result:>8}")   
+    print(f"{name:<12} {scores[0]:<6} {scores[1]:<6} {scores[2]:<6} {total:>6} {average:>8.2f} {result:>6}")

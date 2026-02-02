@@ -1,37 +1,62 @@
-'''subject=["Maths","Tamil","English"]
+# ---------- SUBJECT LIST ----------
+subject = ["Maths", "Tamil", "English"]
+
+# Add items
 subject.append("ICT")
-print(subject)
-subject.insert(2,"SFT")
-print(subject)
-subject.extend(["BST","ET"])
-print(subject)
+print("After append:", subject)
+
+subject.insert(2, "SFT")
+print("After insert:", subject)
+
+subject.extend(["BST", "ET"])
+print("After extend:", subject)
+
+# Remove items
 subject.pop(2)
-print(subject)
+print("After pop index 2:", subject)
+
 subject.pop()
-print(subject)
+print("After pop last:", subject)
+
 subject.remove("Tamil")
-print(subject)
+print("After remove Tamil:", subject)
+
+# Conditional remove
 if "ICT" in subject:
     subject.remove("ICT")
-    print(subject)
-#subject.clear()
-print(subject)
-print(subject.index("English"))
+    print("After removing ICT:", subject)
+
+# Index
+print("Index of English:", subject.index("English"))
+
+# Sorting
 subject.sort()
-print(subject)
+print("Sorted:", subject)
+
 subject.reverse()
-print(subject)
+print("Reversed:", subject)
+
 subject.sort(reverse=True)
-print(subject)'''
+print("Sorted descending:", subject)
 
-marks=[70,80,40,50,60,90]
-print(max(marks))
-print(min(marks))
-print(sum(marks))
 
-marksD=[70,80,40,50,60,90]
-marksD=marks.copy()
-print(marksD)
+print("\n-----------------------------\n")
+
+
+# ---------- MARKS LIST ----------
+marks = [70, 80, 40, 50, 60, 90]
+
+print("Marks:", marks)
+print("Maximum:", max(marks))
+print("Minimum:", min(marks))
+print("Total:", sum(marks))
+print("Average:", sum(marks) / len(marks))
+
+# Copy list
+marksD = marks.copy()
+print("Copied marks:", marksD)
+
+# Modify copied list
 marksD.append(85)
-print(marksD)
-print(marks)
+print("After appending to copy:", marksD)
+print("Original marks (unchanged):", marks)
