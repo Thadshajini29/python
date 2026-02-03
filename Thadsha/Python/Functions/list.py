@@ -59,3 +59,5 @@ for i in range(len(salaries)):
 
 print(f"\nTotal Net Salary:{totalsalary}")
 print(f"Total Tax:{totaltax}")
+
+
